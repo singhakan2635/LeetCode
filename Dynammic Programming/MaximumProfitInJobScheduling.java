@@ -22,6 +22,13 @@ public class MaximumProfitInJobScheduling
         {
             jobs[i] = new Jobs(startTime[i],endTime[i],profit[i]);
         }
+        
+        Arrays.sort(jobs, new Comparator<Jobs>() {
+            @Override
+            public int compare(Jobs o1, Jobs o2) {
+                return o1.end-o2.end;
+            }
+        });
 
         int[] dp = new int[n];
         dp[0] = jobs[0].profit;
